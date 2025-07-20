@@ -13,23 +13,23 @@ All colors MUST be HSL.
     --nooma-black: 0 0% 0%;      /* #000000 */
     
     /* Design System Colors */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 220 27% 8%;
+    --foreground: 60 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 220 27% 12%;
+    --card-foreground: 60 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 220 27% 12%;
+    --popover-foreground: 60 100% 95%;
 
     --primary: 65 95% 63%;        /* nooma yellow */
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 0%;         /* nooma black */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 27% 15%;     /* dark secondary */
+    --secondary-foreground: 60 100% 95%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 220 27% 18%;
+    --muted-foreground: 220 10% 60%;
 
     --accent: 65 95% 63%;
     --accent-foreground: 0 0% 0%;
@@ -37,8 +37,8 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 220 27% 20%;
+    --input: 220 27% 18%;
     --ring: 65 95% 63%;
 
     --radius: 0.5rem;
@@ -107,6 +107,35 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Sora', sans-serif;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(65 95% 63% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(65 95% 63% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(65 95% 63% / 0.06) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(220 27% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 27% 8%) 100%);
+    z-index: -1;
+    animation: cosmic-glow 20s ease-in-out infinite;
+  }
+
+  @keyframes cosmic-glow {
+    0%, 100% { 
+      filter: brightness(1) contrast(1);
+      transform: scale(1);
+    }
+    50% { 
+      filter: brightness(1.1) contrast(1.05);
+      transform: scale(1.02);
+    }
   }
 
   /* Typography */

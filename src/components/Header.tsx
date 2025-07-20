@@ -18,8 +18,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="font-tektur text-2xl font-bold text-foreground">
-              Agência <span className="text-primary">nooma</span>
+            <div className="font-tektur text-2xl font-bold text-primary">
+              Agência nooma
             </div>
           </div>
 
