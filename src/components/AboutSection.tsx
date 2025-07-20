@@ -7,7 +7,7 @@ const AboutSection = () => {
           <div>
             <div className="mb-8">
               <h2 className="font-tektur text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Sobre a <span className="text-primary">nooma</span>
+                Sobre a <span className="text-primary">ησσⲙα</span>
               </h2>
               <div className="w-16 h-1 bg-primary mb-6"></div>
             </div>
