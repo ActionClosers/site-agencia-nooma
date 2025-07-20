@@ -15,9 +15,13 @@ const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           {/* Brand Identity */}
           <div className="mb-8">
-            <h1 className="font-tektur text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-4">
-              Agência <span className="text-primary">nooma</span>
-            </h1>
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/lovable-uploads/dbf13934-02b2-40e9-922b-e6c1c1dbab1b.png" 
+                alt="Agência nooma" 
+                className="h-16 md:h-24 lg:h-32 w-auto"
+              />
+            </div>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           </div>
 

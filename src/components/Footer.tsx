@@ -7,8 +7,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <div className="font-tektur text-3xl font-bold mb-4 text-primary">
-              Agência nooma
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/dbf13934-02b2-40e9-922b-e6c1c1dbab1b.png" 
+                alt="Agência nooma" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="font-sora text-secondary-foreground/80 mb-4">
               Atraímos com propósito.<br />

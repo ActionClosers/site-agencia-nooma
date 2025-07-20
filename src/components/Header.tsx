@@ -18,9 +18,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="font-tektur text-2xl font-bold text-primary">
-              Agência nooma
-            </div>
+            <img 
+              src="/lovable-uploads/dbf13934-02b2-40e9-922b-e6c1c1dbab1b.png" 
+              alt="Agência nooma" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
