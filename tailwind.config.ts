@@ -19,6 +19,8 @@ export default {
 		},
 		extend: {
 			colors: {
+				'nooma-yellow': 'hsl(var(--nooma-yellow))',
+				'nooma-black': 'hsl(var(--nooma-black))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -62,6 +64,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				tektur: ['Tektur', 'system-ui', 'sans-serif'],
+				sora: ['Sora', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
