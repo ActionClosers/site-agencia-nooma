@@ -1,10 +1,77 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+
+// Definir o tipo dos dados do formulário
+interface QuoteFormData {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  message: string;
+}
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
+  // Configurar o formulário com react-hook-form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<QuoteFormData>();
+
+  // Função para enviar os dados para o Supabase
+  const onSubmit = async (data: QuoteFormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Inserir dados na tabela quotes do Supabase
+      const { error } = await supabase
+        .from('quotes')
+        .insert([
+          {
+            name: data.name,
+            email: data.email,
+            company: data.company || null, // Campo opcional
+            service: data.service,
+            message: data.message
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      // Sucesso! Mostrar mensagem e limpar formulário
+      toast({
+        title: "✅ Orçamento enviado com sucesso!",
+        description: "Recebemos sua solicitação e entraremos em contato em breve.",
+      });
+      
+      // Limpar o formulário
+      reset();
+      
+    } catch (error) {
+      console.error('Erro ao enviar orçamento:', error);
+      toast({
+        variant: "destructive",
+        title: "❌ Erro ao enviar orçamento",
+        description: "Houve um problema ao enviar sua solicitação. Tente novamente.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,48 +94,120 @@ const ContactSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="font-sora text-sm font-medium text-foreground mb-2 block">
+                      Nome *
+                    </label>
+                    <Input 
+                      placeholder="Seu nome" 
+                      className="font-sora" 
+                      {...register('name', { 
+                        required: 'Nome é obrigatório',
+                        minLength: { value: 2, message: 'Nome deve ter pelo menos 2 caracteres' }
+                      })}
+                    />
+                    {errors.name && (
+                      <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+                        <AlertCircle className="h-4 w-4" />
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="font-sora text-sm font-medium text-foreground mb-2 block">
+                      E-mail *
+                    </label>
+                    <Input 
+                      type="email" 
+                      placeholder="seu@email.com" 
+                      className="font-sora" 
+                      {...register('email', { 
+                        required: 'E-mail é obrigatório',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'E-mail inválido'
+                        }
+                      })}
+                    />
+                    {errors.email && (
+                      <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+                        <AlertCircle className="h-4 w-4" />
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                
                 <div>
                   <label className="font-sora text-sm font-medium text-foreground mb-2 block">
-                    Nome
+                    Empresa
                   </label>
-                  <Input placeholder="Seu nome" className="font-sora" />
+                  <Input 
+                    placeholder="Nome da sua empresa (opcional)" 
+                    className="font-sora" 
+                    {...register('company')}
+                  />
                 </div>
+                
                 <div>
                   <label className="font-sora text-sm font-medium text-foreground mb-2 block">
-                    E-mail
+                    Serviço de Interesse *
                   </label>
-                  <Input type="email" placeholder="seu@email.com" className="font-sora" />
+                  <Input 
+                    placeholder="Qual serviço você precisa?" 
+                    className="font-sora" 
+                    {...register('service', { 
+                      required: 'Serviço de interesse é obrigatório' 
+                    })}
+                  />
+                  {errors.service && (
+                    <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+                      <AlertCircle className="h-4 w-4" />
+                      {errors.service.message}
+                    </p>
+                  )}
                 </div>
-              </div>
-              
-              <div>
-                <label className="font-sora text-sm font-medium text-foreground mb-2 block">
-                  Empresa
-                </label>
-                <Input placeholder="Nome da sua empresa" className="font-sora" />
-              </div>
-              
-              <div>
-                <label className="font-sora text-sm font-medium text-foreground mb-2 block">
-                  Serviço de Interesse
-                </label>
-                <Input placeholder="Qual serviço você precisa?" className="font-sora" />
-              </div>
-              
-              <div>
-                <label className="font-sora text-sm font-medium text-foreground mb-2 block">
-                  Mensagem
-                </label>
-                <Textarea 
-                  placeholder="Conte-nos mais sobre seu projeto..."
-                  className="font-sora min-h-[120px]"
-                />
-              </div>
-              
-              <Button className="w-full font-sora font-semibold">
-                Enviar Mensagem
-              </Button>
+                
+                <div>
+                  <label className="font-sora text-sm font-medium text-foreground mb-2 block">
+                    Mensagem *
+                  </label>
+                  <Textarea 
+                    placeholder="Conte-nos mais sobre seu projeto..."
+                    className="font-sora min-h-[120px]"
+                    {...register('message', { 
+                      required: 'Mensagem é obrigatória',
+                      minLength: { value: 10, message: 'Mensagem deve ter pelo menos 10 caracteres' }
+                    })}
+                  />
+                  {errors.message && (
+                    <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+                      <AlertCircle className="h-4 w-4" />
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full font-sora font-semibold"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle className="h-4 w-4 mr-2" />
+                      Enviar Orçamento
+                    </>
+                  )}
+                </Button>
+              </form>
             </CardContent>
           </Card>
 
