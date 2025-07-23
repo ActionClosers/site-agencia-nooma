@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import particleImage from '@/assets/particle-optimized.png';
 
 interface Particle {
   x: number;
@@ -24,9 +23,9 @@ const InteractiveBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Load the optimized particle image
+    // Load the particle image
     const img = new Image();
-    img.src = particleImage;
+    img.src = '/lovable-uploads/642455b1-a700-4d9c-8d84-ae65894b1df2.png';
     img.onload = () => {
       imageRef.current = img;
     };

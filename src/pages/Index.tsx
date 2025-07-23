@@ -4,16 +4,20 @@ import ServicesSection from '@/components/ServicesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import InteractiveBackground from '@/components/InteractiveBackground';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <HeroSection />
-      <ServicesSection />
-      <AboutSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen relative">
+      <InteractiveBackground />
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
+        <ServicesSection />
+        <AboutSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 };
