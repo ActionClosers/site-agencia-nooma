@@ -1,4 +1,9 @@
+import { useCounterAnimation } from '@/hooks/useCounterAnimation';
+
 const AboutSection = () => {
+  const { count: projectsCount, elementRef: projectsRef } = useCounterAnimation(100, 2000);
+  const { count: yearsCount, elementRef: yearsRef } = useCounterAnimation(5, 2000);
+  const { count: clientsCount, elementRef: clientsRef } = useCounterAnimation(50, 2000);
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,7 +12,7 @@ const AboutSection = () => {
           <div>
             <div className="mb-8">
               <h2 className="font-tektur text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Sobre a <span className="text-primary">ησσⲙα</span>
+                Sobre a <span className="text-primary">nooma</span>
               </h2>
               <div className="w-16 h-1 bg-primary mb-6"></div>
             </div>
@@ -60,15 +65,21 @@ const AboutSection = () => {
         {/* Stats or Values */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="font-tektur text-4xl font-bold text-primary mb-2">100+</div>
+            <div ref={projectsRef} className="font-tektur text-4xl font-bold text-primary mb-2">
+              {projectsCount}<span className="inline-block">+</span>
+            </div>
             <div className="font-sora text-muted-foreground">Projetos Realizados</div>
           </div>
           <div className="text-center">
-            <div className="font-tektur text-4xl font-bold text-primary mb-2">5+</div>
+            <div ref={yearsRef} className="font-tektur text-4xl font-bold text-primary mb-2">
+              {yearsCount}<span className="inline-block">+</span>
+            </div>
             <div className="font-sora text-muted-foreground">Anos de Experiência</div>
           </div>
           <div className="text-center">
-            <div className="font-tektur text-4xl font-bold text-primary mb-2">50+</div>
+            <div ref={clientsRef} className="font-tektur text-4xl font-bold text-primary mb-2">
+              {clientsCount}<span className="inline-block">+</span>
+            </div>
             <div className="font-sora text-muted-foreground">Clientes Satisfeitos</div>
           </div>
         </div>
