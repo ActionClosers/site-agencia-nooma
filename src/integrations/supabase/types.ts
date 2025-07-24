@@ -47,6 +47,30 @@ export type Database = {
         }
         Relationships: []
       }
+      service_clicks: {
+        Row: {
+          clicked_at: string
+          id: string
+          service_name: string
+          user_agent: string | null
+          user_ip: string | null
+        }
+        Insert: {
+          clicked_at?: string
+          id?: string
+          service_name: string
+          user_agent?: string | null
+          user_ip?: string | null
+        }
+        Update: {
+          clicked_at?: string
+          id?: string
+          service_name?: string
+          user_agent?: string | null
+          user_ip?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
