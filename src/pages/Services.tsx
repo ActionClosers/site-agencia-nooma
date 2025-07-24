@@ -8,6 +8,18 @@ import InteractiveBackground from '@/components/InteractiveBackground';
 const Services = () => {
   const { toast } = useToast();
 
+  const quickNavItems = [
+    { name: 'Complementos para Sites', href: '#complementos-essenciais-para-sites' },
+    { name: 'Marketing Digital', href: '#configuração-de-marketing-digital' },
+    { name: 'Estratégias', href: '#estratégias-de-marketing-digital' },
+    { name: 'Criação de Conteúdo', href: '#criação-de-conteúdo' },
+    { name: 'Design', href: '#design-e-experiência-digital' },
+    { name: 'Branding', href: '#gestão-de-marcas-(branding)' },
+    { name: 'Performance', href: '#performance-e-resultados' },
+    { name: 'Personalizados', href: '#soluções-personalizadas' },
+    { name: 'Adicionais', href: '#itens-adicionais' }
+  ];
+
   const trackServiceClick = async (serviceName: string) => {
     try {
       await supabase
@@ -199,9 +211,29 @@ const Services = () => {
               </p>
             </div>
 
+            {/* Quick Navigation */}
+            <div className="mb-16">
+              <div className="bg-muted/30 rounded-2xl p-6 max-w-5xl mx-auto">
+                <h3 className="font-sora text-lg font-semibold text-foreground mb-4 text-center">
+                  Navegação Rápida
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {quickNavItems.map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.href}
+                      className="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-foreground hover:text-primary bg-background hover:bg-primary/10 rounded-lg transition-colors border border-border hover:border-primary/20"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* Services Categories */}
             {services.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="mb-16">
+              <div key={categoryIndex} className="mb-16" id={category.category.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}>
                 <h2 className="font-tektur text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                   {category.category}
                 </h2>

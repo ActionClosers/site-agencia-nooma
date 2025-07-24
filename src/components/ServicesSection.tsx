@@ -86,9 +86,20 @@ const ServicesSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="font-sora text-sm text-muted-foreground text-center leading-relaxed">
+                <p className="font-sora text-sm text-muted-foreground text-center leading-relaxed mb-4">
                   {service.description}
                 </p>
+                <div className="text-center">
+                  <a 
+                    href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="inline-flex items-center gap-1 text-primary hover:text-primary/80 text-sm font-medium transition-colors"
+                  >
+                    Saiba mais
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
               </CardContent>
             </Card>
           ))}
