@@ -6,10 +6,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Início', href: '/' },
+    { name: 'Início', href: 'https://preview--nooma-glow-website.lovable.app/' },
     { name: 'Serviços', href: '/services' },
-    { name: 'Sobre', href: '/#about' },
-    { name: 'Contato', href: '/#contact' },
+    { name: 'Sobre', href: 'https://preview--nooma-glow-website.lovable.app/#about' },
+    { name: 'Contato', href: 'https://preview--nooma-glow-website.lovable.app/#contact' },
   ];
 
   return (
