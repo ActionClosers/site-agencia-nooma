@@ -236,7 +236,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="font-sora font-medium text-foreground">Telefone</div>
-                    <div className="font-sora text-muted-foreground">(11) 99999-9999</div>
+                    <div className="font-sora text-muted-foreground">(47) 99997-1933</div>
                   </div>
                 </div>
 
@@ -246,7 +246,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="font-sora font-medium text-foreground">Localização</div>
-                    <div className="font-sora text-muted-foreground">São Paulo, SP</div>
+                    <div className="font-sora text-muted-foreground">Balneário Camboriú, SC</div>
                   </div>
                 </div>
               </CardContent>

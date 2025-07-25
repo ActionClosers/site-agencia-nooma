@@ -6,10 +6,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Início', href: '#home' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '/' },
+    { name: 'Serviços', href: '/services' },
+    { name: 'Sobre', href: '/#about' },
+    { name: 'Contato', href: '/#contact' },
   ];
 
   return (

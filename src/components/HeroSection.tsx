@@ -45,11 +45,7 @@ const HeroSection = () => {
 
           {/* Call to Action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="/services"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/services">
               <Button 
                 size="lg" 
                 className="font-sora font-semibold px-8 py-6 text-lg group"

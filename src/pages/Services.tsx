@@ -14,7 +14,7 @@ const Services = () => {
     { name: 'Estratégias', href: '#estratégias-de-marketing-digital' },
     { name: 'Criação de Conteúdo', href: '#criação-de-conteúdo' },
     { name: 'Design', href: '#design-e-experiência-digital' },
-    { name: 'Branding', href: '#gestão-de-marcas-(branding)' },
+    { name: 'Branding', href: '#gestão-de-marcas-branding' },
     { name: 'Performance', href: '#performance-e-resultados' },
     { name: 'Personalizados', href: '#soluções-personalizadas' },
     { name: 'Adicionais', href: '#itens-adicionais' }

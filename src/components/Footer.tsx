@@ -57,7 +57,10 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>(11) 99999-9999</span>
+                <span>(47) 99997-1933</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-secondary-foreground/80">Balneário Camboriú, SC</span>
               </div>
             </div>
           </div>
