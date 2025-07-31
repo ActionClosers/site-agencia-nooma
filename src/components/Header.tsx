@@ -8,6 +8,7 @@ const Header = () => {
   const navItems = [
     { name: 'Início', href: 'https://preview--nooma-glow-website.lovable.app/' },
     { name: 'Serviços', href: '/services' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Sobre', href: 'https://preview--nooma-glow-website.lovable.app/#about' },
     { name: 'Contato', href: 'https://preview--nooma-glow-website.lovable.app/#contact' },
   ];
