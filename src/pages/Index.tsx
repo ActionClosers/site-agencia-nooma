@@ -5,6 +5,7 @@ import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import InteractiveBackground from '@/components/InteractiveBackground';
+import BackToTop from '@/components/BackToTop';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <ContactSection />
         <Footer />
       </div>
+      <BackToTop />
     </div>
   );
 };

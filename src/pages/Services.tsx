@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InteractiveBackground from '@/components/InteractiveBackground';
+import BackToTop from '@/components/BackToTop';
 
 const Services = () => {
   const { toast } = useToast();
@@ -288,6 +289,7 @@ const Services = () => {
 
         <Footer />
       </div>
+      <BackToTop />
     </div>
   );
 };
