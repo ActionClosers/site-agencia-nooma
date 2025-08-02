@@ -74,15 +74,11 @@ const AdminBlog = () => {
   const checkAuth = async () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      // Redirect to login page or show login form
-      toast({
-        title: 'Acesso restrito',
-        description: 'Você precisa estar logado para acessar esta página.',
-        variant: 'destructive',
-      });
+      setLoading(false);
       return;
     }
     setUser(user);
+    setLoading(false);
   };
 
   const fetchCategories = async () => {
@@ -288,10 +284,13 @@ const AdminBlog = () => {
           <CardHeader>
             <CardTitle>Acesso Restrito</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             <p className="text-muted-foreground">
               Esta página é restrita a administradores. Faça login para continuar.
             </p>
+            <Button asChild className="w-full">
+              <a href="/auth">Fazer Login</a>
+            </Button>
           </CardContent>
         </Card>
       </div>
