@@ -15,6 +15,7 @@ import { Switch } from '@/components/ui/switch';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Plus, Edit, Trash, Eye, Save, X } from 'lucide-react';
+import { HtmlEditor } from '@/components/HtmlEditor';
 
 interface BlogPost {
   id: string;
@@ -359,12 +360,10 @@ const AdminBlog = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="content">Conteúdo</Label>
-                      <Textarea
-                        id="content"
+                      <HtmlEditor
                         value={formData.content}
-                        onChange={(e) => handleInputChange('content', e.target.value)}
-                        rows={10}
-                        required
+                        onChange={(value) => handleInputChange('content', value)}
+                        placeholder="Digite o conteúdo do post aqui..."
                       />
                     </div>
 
