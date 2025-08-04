@@ -94,6 +94,51 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_items: {
+        Row: {
+          category: string
+          client_name: string | null
+          created_at: string
+          description: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          project_url: string | null
+          service_type: string | null
+          technologies: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          client_name?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          project_url?: string | null
+          service_type?: string | null
+          technologies?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          client_name?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          project_url?: string | null
+          service_type?: string | null
+          technologies?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       post_tags: {
         Row: {
           id: string
@@ -202,6 +247,45 @@ export type Database = {
           id?: string
           name?: string
           slug?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          client_company: string | null
+          client_name: string
+          client_position: string | null
+          content: string
+          created_at: string
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          rating: number | null
+          updated_at: string
+        }
+        Insert: {
+          client_company?: string | null
+          client_name: string
+          client_position?: string | null
+          content: string
+          created_at?: string
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          rating?: number | null
+          updated_at?: string
+        }
+        Update: {
+          client_company?: string | null
+          client_name?: string
+          client_position?: string | null
+          content?: string
+          created_at?: string
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          rating?: number | null
+          updated_at?: string
         }
         Relationships: []
       }
