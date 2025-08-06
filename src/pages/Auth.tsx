@@ -23,7 +23,7 @@ const Auth = () => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        navigate('/admin/blog');
+        navigate('/admin');
       }
     };
     checkUser();
@@ -31,7 +31,7 @@ const Auth = () => {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (session?.user) {
-        navigate('/admin/blog');
+        navigate('/admin');
       }
     });
 
@@ -80,7 +80,7 @@ const Auth = () => {
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/admin/blog`
+          emailRedirectTo: `${window.location.origin}/admin`
         }
       });
 

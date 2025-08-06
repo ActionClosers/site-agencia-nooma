@@ -67,10 +67,18 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-secondary-foreground/20 mt-8 pt-8 text-center">
-          <p className="font-sora text-sm text-secondary-foreground/60">
-            © 2024 Agência nooma. Todos os direitos reservados.
-          </p>
+        <div className="border-t border-secondary-foreground/20 mt-8 pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="font-sora text-sm text-secondary-foreground/60 mb-2 sm:mb-0">
+              © 2024 Agência nooma. Todos os direitos reservados.
+            </p>
+            <a 
+              href="/admin" 
+              className="font-sora text-xs text-secondary-foreground/40 hover:text-secondary-foreground/60 transition-colors"
+            >
+              Admin
+            </a>
+          </div>
         </div>
       </div>
     </footer>
