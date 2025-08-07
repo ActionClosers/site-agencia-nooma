@@ -319,6 +319,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: boolean
       }
+      request_password_reset: {
+        Args: { user_email: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
