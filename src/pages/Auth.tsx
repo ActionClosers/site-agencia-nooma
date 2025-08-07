@@ -17,6 +17,7 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [resetLoading, setResetLoading] = useState(false);
 
   useEffect(() => {
     // Check if user is already logged in
@@ -107,6 +108,47 @@ const Auth = () => {
     }
   };
 
+  const handlePasswordReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast({
+        title: 'Email necessário',
+        description: 'Por favor, insira seu email para recuperar a senha.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setResetLoading(true);
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth?reset=true`,
+      });
+
+      if (error) {
+        toast({
+          title: 'Erro na recuperação',
+          description: error.message,
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: 'Email enviado',
+          description: 'Verifique seu email para resetar a senha.',
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Erro',
+        description: 'Ocorreu um erro inesperado.',
+        variant: 'destructive',
+      });
+    } finally {
+      setResetLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <InteractiveBackground />
@@ -120,9 +162,10 @@ const Auth = () => {
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="signin" className="w-full">
-                <TabsList className="grid w-full grid-cols-2">
+                <TabsList className="grid w-full grid-cols-3">
                   <TabsTrigger value="signin">Entrar</TabsTrigger>
                   <TabsTrigger value="signup">Cadastrar</TabsTrigger>
+                  <TabsTrigger value="reset">Recuperar</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="signin">
@@ -183,6 +226,33 @@ const Auth = () => {
                     <Button type="submit" className="w-full" disabled={loading}>
                       {loading ? 'Cadastrando...' : 'Cadastrar'}
                     </Button>
+                  </form>
+                </TabsContent>
+                
+                <TabsContent value="reset">
+                  <form onSubmit={handlePasswordReset} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="reset-email">Email</Label>
+                      <Input
+                        id="reset-email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Seu email cadastrado"
+                        required
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="w-full" disabled={resetLoading}>
+                      {resetLoading ? 'Enviando...' : 'Enviar link de recuperação'}
+                    </Button>
+                    
+                    <div className="text-center text-sm text-muted-foreground">
+                      <p>Você receberá um link para resetar sua senha por email.</p>
+                      <p className="mt-2">
+                        <strong>Email padrão do admin:</strong> admin@agencianooma.com
+                      </p>
+                    </div>
                   </form>
                 </TabsContent>
               </Tabs>
