@@ -46,8 +46,6 @@ const AdminBlog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [checkingAdmin, setCheckingAdmin] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [formData, setFormData] = useState({
@@ -62,42 +60,9 @@ const AdminBlog = () => {
   });
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        navigate('/auth');
-        return;
-      }
-      
-      // Check if user is admin
-      try {
-        const { data, error } = await supabase
-          .rpc('is_current_user_admin');
-        
-        if (error) {
-          console.error('Error checking admin status:', error);
-          setIsAdmin(false);
-        } else {
-          setIsAdmin(data);
-        }
-      } catch (error) {
-        console.error('Error checking admin status:', error);
-        setIsAdmin(false);
-      }
-      
-      setCheckingAdmin(false);
-    };
-
-    checkAuth();
-  }, [navigate]);
-
-  useEffect(() => {
-    // Only fetch data if user is admin
-    if (isAdmin && !checkingAdmin) {
-      fetchPosts();
-      fetchCategories();
-    }
-  }, [isAdmin, checkingAdmin]);
+    fetchPosts();
+    fetchCategories();
+  }, []);
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -289,44 +254,15 @@ const AdminBlog = () => {
     }
   };
 
-  if (loading || checkingAdmin) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
           <p className="mt-4 text-muted-foreground">
-            {loading ? 'Carregando...' : 'Verificando permissões...'}
+            Carregando...
           </p>
         </div>
-      </div>
-    );
-  }
-
-  // Show access denied if user is not admin
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen bg-background">
-        <InteractiveBackground />
-        <Header />
-        
-        <main className="relative z-10 pt-20 pb-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md mx-auto">
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
-                  Acesso negado. Você não tem permissão para acessar esta área.
-                </AlertDescription>
-              </Alert>
-              
-              <div className="text-center mt-8">
-                <Button onClick={() => navigate('/')} variant="outline">
-                  Voltar ao início
-                </Button>
-              </div>
-            </div>
-          </div>
-        </main>
       </div>
     );
   }
