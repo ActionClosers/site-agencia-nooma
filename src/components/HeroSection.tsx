@@ -55,7 +55,7 @@ const HeroSection = () => {
               </Button>
             </a>
             <a 
-              href="https://wa.me/5547999971933/?text=Quero saber mais sobre a Nooma...."
+              href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
               target="_blank"
               rel="noopener noreferrer"
             >

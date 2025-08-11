@@ -14,8 +14,8 @@ const Services = () => {
     { name: 'Marketing Digital', href: '#configuração-de-marketing-digital' },
     { name: 'Estratégias', href: '#estratégias-de-marketing-digital' },
     { name: 'Criação de Conteúdo', href: '#criação-de-conteúdo' },
-    { name: 'Design', href: '#design-e-experiência-digital' },
-    { name: 'Branding', href: '#gestão-de-marcas-branding' },
+    { name: 'Web Design', href: '#design-e-experiência-digital' },
+    { name: 'Design Gráfico', href: '#gestão-de-marcas-branding' },
     { name: 'Performance', href: '#performance-e-resultados' },
     { name: 'Personalizados', href: '#soluções-personalizadas' },
     { name: 'Adicionais', href: '#itens-adicionais' }
@@ -138,7 +138,7 @@ const Services = () => {
       items: [
         {
           title: "Criação de Identidade Visual",
-          description: "Desenvolvemos logos, cores e tipografia para destacar sua marca. Identidade coesa que comunica seus valores e diferencia você da concorrência."
+          description: "Fortalecemos a imagem de uma empresa, pessoa ou serviço através do desenvolvimento de sua identidade visual. Assim, a marca se torna muito mais memorável e constrói identificação com seu público."
         },
         {
           title: "Posicionamento de Marca",
@@ -272,7 +272,7 @@ const Services = () => {
                   Entre em contato conosco e descubra como podemos transformar suas ideias em realidade.
                 </p>
                 <a 
-                  href="https://wa.me/5547999971933/?text=Quero saber mais sobre a Nooma...."
+                  href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-sora font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"

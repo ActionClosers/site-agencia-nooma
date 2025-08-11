@@ -115,7 +115,7 @@ const ServicesSection = () => {
               Entre em contato conosco e descubra como podemos transformar suas ideias em realidade.
             </p>
             <a 
-              href="https://wa.me/5547999971933/?text=Quero saber mais sobre a Nooma...."
+              href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-sora font-semibold px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"

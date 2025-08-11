@@ -6,12 +6,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Início', href: 'https://preview--nooma-glow-website.lovable.app/' },
+    { name: 'Início', href: 'https://agencianooma.com.br/' },
     { name: 'Serviços', href: '/services' },
     { name: 'Portfólio', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Sobre', href: 'https://preview--nooma-glow-website.lovable.app/#about' },
-    { name: 'Contato', href: 'https://preview--nooma-glow-website.lovable.app/#contact' },
+    { name: 'Sobre', href: 'https://agencianooma.com.br/#about' },
+    { name: 'Contato', href: 'https://agencianooma.com.br/#contact' },
   ];
 
   return (
@@ -45,7 +45,7 @@ const Header = () => {
           {/* Contact Button */}
           <div className="hidden md:flex">
             <a 
-              href="https://wa.me/5547999971933/?text=Quero saber mais sobre a Nooma...."
+              href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -86,7 +86,7 @@ const Header = () => {
                 </a>
               ))}
               <a 
-                href="https://wa.me/5547999971933/?text=Quero saber mais sobre a Nooma...."
+                href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-fit"
