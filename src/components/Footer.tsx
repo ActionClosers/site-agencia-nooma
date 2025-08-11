@@ -20,16 +20,30 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/agencianooma"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Agência nooma"
                 className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="#"
+                aria-label="LinkedIn da Agência nooma"
                 className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a 
+                href="#"
+                aria-label="Perfil no X (Twitter) da Agência nooma"
+                className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2H21l-6.539 7.468L22 22h-6.849l-4.78-5.788L4.818 22H2l7.002-8.001L2 2h6.979l4.283 5.198L18.244 2zm-2.401 18h2.403L8.661 4H6.245l9.598 16z"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -72,12 +86,6 @@ const Footer = () => {
             <p className="font-sora text-sm text-secondary-foreground/60 mb-2 sm:mb-0">
               © 2024 Agência nooma. Todos os direitos reservados.
             </p>
-            <a 
-              href="/admin" 
-              className="font-sora text-xs text-secondary-foreground/40 hover:text-secondary-foreground/60 transition-colors"
-            >
-              Admin
-            </a>
           </div>
         </div>
       </div>
