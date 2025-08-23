@@ -1,7 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 const HeroSection = () => {
+  // Inicializar o Meta Pixel e rastrear PageView
+  useFacebookPixel('1891681904727826');
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
       {/* Geometric Background Elements */}
@@ -45,7 +49,10 @@ const HeroSection = () => {
 
           {/* Call to Action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/services">
+            <a href="/services" onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+              content_name: 'Know Our Services',
+              content_category: 'Call to Action',
+            })}>
               <Button 
                 size="lg" 
                 className="font-sora font-semibold px-8 py-6 text-lg group"
@@ -58,6 +65,10 @@ const HeroSection = () => {
               href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                content_name: 'WhatsApp Contact',
+                content_category: 'Contact',
+              })}
             >
               <Button 
                 variant="outline" 
