@@ -1,6 +1,10 @@
 import { Instagram, Linkedin, Mail, Phone, MapPin, Facebook } from 'lucide-react';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 const Footer = () => {
+  // Inicializar o Meta Pixel e rastrear PageView
+  useFacebookPixel('1891681904727826');
+
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,6 +29,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Instagram da Agência nooma"
                 className="flex items-center justify-center"
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                  content_name: 'Instagram Link',
+                  content_category: 'Social Media',
+                })}
               >
                 <Instagram className="h-4 w-4 text-secondary-foreground/80" />
               </a>
@@ -34,6 +42,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn da Agência nooma"
                 className="flex items-center justify-center"
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                  content_name: 'LinkedIn Link',
+                  content_category: 'Social Media',
+                })}
               >
                 <Linkedin className="h-4 w-4 text-secondary-foreground/80" />
               </a>
@@ -43,6 +55,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Facebook da Agência nooma"
                 className="flex items-center justify-center"
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                  content_name: 'Facebook Link',
+                  content_category: 'Social Media',
+                })}
               >
                 <Facebook className="h-4 w-4 text-secondary-foreground/80" />
               </a>
