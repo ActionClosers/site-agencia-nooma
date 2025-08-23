@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 interface PortfolioItem {
   id: string;
@@ -32,6 +33,9 @@ interface PortfolioGalleryProps {
 const PortfolioGallery = ({ items, loading }: PortfolioGalleryProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedService, setSelectedService] = useState<string>('all');
+
+  // Inicializar o Meta Pixel e rastrear PageView
+  useFacebookPixel('1891681904727826');
 
   // Get unique categories and services
   const categories = ['all', ...new Set(items.map(item => item.category))];
@@ -135,7 +139,13 @@ const PortfolioGallery = ({ items, loading }: PortfolioGalleryProps) => {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => window.open(item.project_url, '_blank')}
+                        onClick={() => {
+                          window.open(item.project_url, '_blank');
+                          useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                            content_name: `${item.title} Project Link`,
+                            content_category: 'Portfolio',
+                          });
+                        }}
                       >
                         <ExternalLink className="h-4 w-4" />
                       </Button>
