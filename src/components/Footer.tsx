@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin, Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -29,11 +29,22 @@ const Footer = () => {
                 <Instagram className="h-4 w-4 text-secondary-foreground/80" />
               </a>
               <a 
-                href="#"
+                href="https://www.linkedin.com/company/agencianooma"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn da Agência nooma"
                 className="flex items-center justify-center"
               >
                 <Linkedin className="h-4 w-4 text-secondary-foreground/80" />
+              </a>
+              <a 
+                href="https://www.facebook.com/agencianooma"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook da Agência nooma"
+                className="flex items-center justify-center"
+              >
+                <Facebook className="h-4 w-4 text-secondary-foreground/80" />
               </a>
             </div>
           </div>
