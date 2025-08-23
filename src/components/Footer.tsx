@@ -35,16 +35,6 @@ const Footer = () => {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a 
-                href="#"
-                aria-label="Perfil no X (Twitter) da Agência nooma"
-                className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                target="_blank" rel="noopener noreferrer"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M18.244 2H21l-6.539 7.468L22 22h-6.849l-4.78-5.788L4.818 22H2l7.002-8.001L2 2h6.979l4.283 5.198L18.244 2zm-2.401 18h2.403L8.661 4H6.245l9.598 16z"/>
-                </svg>
-              </a>
             </div>
           </div>
 
