@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Star, Quote } from 'lucide-react';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 interface Testimonial {
   id: string;
@@ -19,6 +20,9 @@ interface TestimonialsSectionProps {
 }
 
 const TestimonialsSection = ({ testimonials, loading }: TestimonialsSectionProps) => {
+  // Inicializar o Meta Pixel e rastrear PageView
+  useFacebookPixel('1891681904727826');
+
   if (loading) {
     return (
       <section className="py-16 px-4 bg-muted/30">
