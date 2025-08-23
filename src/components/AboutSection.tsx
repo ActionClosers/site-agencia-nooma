@@ -1,9 +1,14 @@
 import { useCounterAnimation } from '@/hooks/useCounterAnimation';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 const AboutSection = () => {
   const { count: projectsCount, elementRef: projectsRef } = useCounterAnimation(100, 2000);
   const { count: yearsCount, elementRef: yearsRef } = useCounterAnimation(5, 2000);
   const { count: clientsCount, elementRef: clientsRef } = useCounterAnimation(50, 2000);
+
+  // Inicializar o Meta Pixel e rastrear ViewContent para esta seção
+  useFacebookPixel('1891681904727826');
+
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
