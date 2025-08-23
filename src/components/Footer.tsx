@@ -24,16 +24,16 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram da Agência nooma"
-                className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                className="flex items-center justify-center"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4 text-secondary-foreground/80" />
               </a>
               <a 
                 href="#"
                 aria-label="LinkedIn da Agência nooma"
-                className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                className="flex items-center justify-center"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4 text-secondary-foreground/80" />
               </a>
             </div>
           </div>
