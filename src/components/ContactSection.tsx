@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Instagram, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook, CheckCircle, AlertCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -262,16 +262,31 @@ const ContactSection = () => {
               <CardContent>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://www.instagram.com/agencianooma" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram da Agência nooma"
                     className="flex items-center justify-center w-12 h-12 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors"
                   >
                     <Instagram className="h-6 w-6" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/company/agencianooma" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn da Agência nooma"
                     className="flex items-center justify-center w-12 h-12 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors"
                   >
                     <Linkedin className="h-6 w-6" />
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/agencianooma" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook da Agência nooma"
+                    className="flex items-center justify-center w-12 h-12 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors"
+                  >
+                    <Facebook className="h-6 w-6" />
                   </a>
                 </div>
                 <p className="font-sora text-sm text-muted-foreground mt-4">
