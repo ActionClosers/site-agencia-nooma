@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -64,7 +64,8 @@ const Footer = () => {
                 <span>(47) 98486-9151</span>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="text-secondary-foreground/80">Balneário Camboriú, SC</span>
+                <MapPin className="h-4 w-4" />
+                <span>Balneário Camboriú, SC</span>
               </div>
             </div>
           </div>
