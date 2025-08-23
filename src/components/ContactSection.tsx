@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook, CheckCircle, AlertC
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importe o hook
 
 // Definir o tipo dos dados do formulário
 interface QuoteFormData {
@@ -29,6 +30,9 @@ const ContactSection = () => {
     formState: { errors }
   } = useForm<QuoteFormData>();
 
+  // Inicializar o Meta Pixel com o ID fornecido
+  useFacebookPixel('1891681904727826');
+
   // Função para enviar os dados para o Supabase
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
@@ -50,6 +54,12 @@ const ContactSection = () => {
       if (error) {
         throw error;
       }
+
+      // Rastrear evento de sucesso (ex.: 'Lead' ou 'Submit')
+      useFacebookPixel('1891681904727826').trackCustomEvent('Lead', {
+        content_name: 'Contact Form Submission',
+        content_category: 'Quote Request',
+      });
 
       // Sucesso! Mostrar mensagem e limpar formulário
       toast({
