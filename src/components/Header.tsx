@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do hook
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Inicializar o Meta Pixel e rastrear PageView
+  useFacebookPixel('1891681904727826');
 
   const navItems = [
     { name: 'Início', href: 'https://agencianooma.com.br/' },
@@ -36,6 +40,10 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 className="font-sora text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                  content_name: `${item.name} Link`,
+                  content_category: 'Navigation',
+                })}
               >
                 {item.name}
               </a>
@@ -48,6 +56,10 @@ const Header = () => {
               href="https://wa.me/5547984869151/?text=Quero saber mais sobre a Nooma...."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                content_name: 'WhatsApp Contact',
+                content_category: 'Contact',
+              })}
             >
               <Button variant="default" className="font-sora font-medium">
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -80,7 +92,13 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className="font-sora text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                      content_name: `${item.name} Link`,
+                      content_category: 'Navigation',
+                    });
+                  }}
                 >
                   {item.name}
                 </a>
@@ -90,6 +108,10 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-fit"
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
+                  content_name: 'WhatsApp Contact',
+                  content_category: 'Contact',
+                })}
               >
                 <Button variant="default" className="font-sora font-medium mt-4 w-fit">
                   <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
