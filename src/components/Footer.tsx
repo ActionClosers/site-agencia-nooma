@@ -3,7 +3,7 @@ import { useFacebookPixel } from '@/hooks/useFacebookPixel'; // Importação do 
 
 const Footer = () => {
   // Inicializar o Meta Pixel e rastrear PageView
-  useFacebookPixel('1336887197941964');
+  useFacebookPixel('1891681904727826');
 
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
@@ -29,7 +29,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Instagram da Agência nooma"
                 className="flex items-center justify-center"
-                onClick={() => useFacebookPixel('1336887197941964').trackCustomEvent('Click', {
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
                   content_name: 'Instagram Link',
                   content_category: 'Social Media',
                 })}
@@ -42,7 +42,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn da Agência nooma"
                 className="flex items-center justify-center"
-                onClick={() => useFacebookPixel('1336887197941964').trackCustomEvent('Click', {
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
                   content_name: 'LinkedIn Link',
                   content_category: 'Social Media',
                 })}
@@ -55,7 +55,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Facebook da Agência nooma"
                 className="flex items-center justify-center"
-                onClick={() => useFacebookPixel('1336887197941964').trackCustomEvent('Click', {
+                onClick={() => useFacebookPixel('1891681904727826').trackCustomEvent('Click', {
                   content_name: 'Facebook Link',
                   content_category: 'Social Media',
                 })}
