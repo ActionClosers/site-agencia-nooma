@@ -7,7 +7,7 @@ const AboutSection = () => {
   const { count: clientsCount, elementRef: clientsRef } = useCounterAnimation(50, 2000);
 
   // Inicializar o Meta Pixel e rastrear ViewContent para esta seção
-  useFacebookPixel('1891681904727826');
+  useFacebookPixel('1336887197941964');
 
   return (
     <section id="about" className="py-20 bg-background">
