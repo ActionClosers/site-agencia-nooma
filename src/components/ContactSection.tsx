@@ -31,7 +31,7 @@ const ContactSection = () => {
   } = useForm<QuoteFormData>();
 
   // Inicializar o Meta Pixel com o ID fornecido
-  useFacebookPixel('1891681904727826');
+  useFacebookPixel('1336887197941964');
 
   // Função para enviar os dados para o Supabase
   const onSubmit = async (data: QuoteFormData) => {
@@ -56,7 +56,7 @@ const ContactSection = () => {
       }
 
       // Rastrear evento de sucesso (ex.: 'Lead' ou 'Submit')
-      useFacebookPixel('1891681904727826').trackCustomEvent('Lead', {
+      useFacebookPixel('1336887197941964').trackCustomEvent('Lead', {
         content_name: 'Contact Form Submission',
         content_category: 'Quote Request',
       });
